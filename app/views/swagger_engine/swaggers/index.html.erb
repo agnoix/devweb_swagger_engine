@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ayla Networks Developer</title>
+	<%= stylesheet_link_tag "swagger_engine/application" %>
+	<%= stylesheet_link_tag "swagger_engine/reset", media: "print" %>
+	<%= stylesheet_link_tag "swagger_engine/print", media: "print" %>
+	<%= stylesheet_link_tag "bootstrap" %>
+	<%= stylesheet_link_tag "deley" %>
+	<%= stylesheet_link_tag "layout" %>
+	<%= stylesheet_link_tag "normalize" %>
+	<%= stylesheet_link_tag "custom2" %>
+
+	<%= javascript_include_tag "swagger_engine/application" %>
+	<%= csrf_meta_tags %>
+</head>
+
+<body>
+<div class="main-wrapper">
+	<header class="header row-fluid">
+		<div class="logo span6">
+			<%= link_to image_tag("swagger_engine/ayla-networks-developers-logo.jpg", height: '48', width: '277'), main_app.root_path  %>
+		</div>
+		<h1 class="span13 MA0 PT3"><span class="ui-icon tool-icon MR20">&nbsp;</span><span class="vmiddle">Ayla Developer Center</span></h1>
+	</header>
+
+	<div class="content-wrapper row-fluid MT40">
+		<div class="inner-content-wrapper span23 offset1 PB40 background-opacity">
+			<section class="MA20 PL20">
+				<h1 class="title"><%= link_to "Ayla API Browser", root_path %></h1>
+				<div class="inner-content-wrapper row-fluid">
+					<div class="property-edit-container">
+						<div class="span6">
+							<!--Sidebar content-->
+							<ul id="resources">
+								<% @json_files.each do |k, v| %>
+										<li class="resource">
+											<div class="heading">
+												<h2>
+													<%= link_to v, swagger_path(k) %>
+												</h2>
+											</div>
+										</li>
+								<% end %>
+							</ul>
+						</div>
+						<div class="span12">
+							<p>Welcome to Ayla’s API Browser! Ayla created this tool to support our developers first and foremost. One of the most time consuming development requirements is coming up to speed with the API set on a new project, the API Browser is designed to significantly reduce this ramp up time by providing live, accurate, fully detailed input and output to our development users.
+							</p>
+
+							<p>Take a moment to watch our quick start video guide.</p>
+							<br>
+
+							<script src="//fast.wistia.com/embed/medias/8yuv8ul8ne.jsonp" async></script>
+							<script src="//fast.wistia.com/assets/external/E-v1.js" async></script>
+							<div class="wistia_embed wistia_async_8yuv8ul8ne videoFoam=true playerColor=009900" style="height:357px;width:640px">&nbsp;</div>
+							<br>
+
+							<p>This is the first generation release and Ayla is looking to our developers to help us grow and improve our API library. We will be adding in additional APIs over time until all of our external APIs are available. Please let us know any improvements you think we could make including additional APIs you would want to see included next, please send an email to support@aylanetworks.com with requests.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+
+	<footer class="footer row-fluid">
+		<nav class="footer-nav span24">
+			<ul class="Tcenter">
+				<li><a href="/">Home</a></li>
+				<li><a href="http://www.aylanetworks.com/news" target="_blank">News</a></li>
+				<li><a href="http://www.aylanetworks.com" target="_blank">Contact</a></li>
+				<li><a href="https://help.aylasupport.com/" target="_blank">Support</a></li>
+				<li><a href="redirectTo('/feedback')" href="#">Feedback</a></li>
+			</ul>
+		</nav>
+	</footer>
+</div>
+</body>
+</html>

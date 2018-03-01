@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ayla Networks Developer</title>
+  <%= stylesheet_link_tag "swagger_engine/application" %>
+  <%= stylesheet_link_tag "swagger_engine/reset", media: "print" %>
+  <%= stylesheet_link_tag "swagger_engine/print", media: "print" %>
+  <%= stylesheet_link_tag "bootstrap" %>
+  <%= stylesheet_link_tag "deley" %>
+  <%= stylesheet_link_tag "layout" %>
+  <%= stylesheet_link_tag "normalize" %>
+  <%= stylesheet_link_tag "custom2" %>
+  <%= javascript_include_tag "swagger_engine/application" %>
+  <%= csrf_meta_tags %>
+
+  <script type="text/javascript">
+    $(function () {
+      var url = window.location.search.match(/url=([^&]+)/);
+      if (url && url.length > 1) {
+        url = decodeURIComponent(url[1]);
+      } else {
+        url = '<%= @swagger_json_url %>';
+      }
+
+      // Pre load translate...
+      if(window.SwaggerTranslator) {
+        window.SwaggerTranslator.translate();
+      }
+      window.swaggerUi = new SwaggerUi({
+        url: url,
+        dom_id: "swagger-ui-container",
+        supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
+        onComplete: function(swaggerApi, swaggerUi){
+          if(typeof initOAuth == "function") {
+            initOAuth({
+              clientId: "your-client-id",
+              clientSecret: "your-client-secret",
+              realm: "your-realms",
+              appName: "your-app-name",
+              scopeSeparator: ","
+            });
+          }
+
+          if(window.SwaggerTranslator) {
+            window.SwaggerTranslator.translate();
+          }
+
+          $('pre code').each(function(i, e) {
+            hljs.highlightBlock(e)
+          });
+
+          addApiKeyAuthorization();
+        },
+        onFailure: function(data) {
+          log("Unable to Load SwaggerUI");
+        },
+        docExpansion: "none",
+        apisSorter: "alpha",
+        showRequestHeaders: false
+      });
+
+      function addApiKeyAuthorization(){
+        var key = encodeURIComponent($('#input_apiKey')[0].value);
+        if(key && key.trim() != "") {
+          window.authorizations.add("key", new ApiKeyAuthorization("Authorization", "auth_token " + key, "header"));
+          log("added key " + key);
+        }
+      }
+
+      $('#input_apiKey').change(addApiKeyAuthorization);
+
+      // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
+      /*
+       var apiKey = "myApiKeyXXXX123456789";
+       $('#input_apiKey').val(apiKey);
+       */
+
+      window.swaggerUi.load();
+
+      function log() {
+        if ('console' in window) {
+          console.log.apply(console, arguments);
+        }
+      }
+    });
+  </script>
+</head>
+
+<body class="swagger-section">
+
+<div class="main-wrapper">
+  <header class="header row-fluid">
+    <div class="logo span6">
+      <%= link_to image_tag("swagger_engine/ayla-networks-developers-logo.jpg", height: '48', width: '277'), main_app.root_path  %>
+    </div>
+
+    <h1 class="span13 MA0 PT3"><span class="ui-icon tool-icon MR20">&nbsp;</span><span class="vmiddle">Ayla Developer Center</span></h1>
+  </header>
+
+  <div class="content-wrapper row-fluid MT40">
+    <div class="inner-content-wrapper span23 offset1 PB40 background-opacity">
+      <section class="MA20 PL20">
+        <h1 class="title"><%= link_to "Ayla API Browser", root_path %></h1>
+        <div id='header'>
+          <form id='api_selector' onsubmit="return false;">
+            <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="hidden"/></div>
+            <div class='input'><input placeholder="auth_token" id="input_apiKey" name="apiKey" type="text"/></div>
+            <!-- <div class='input'><a id="explore" href="#" data-sw-translate>Explore</a></div> -->
+          </form>
+        </div>
+
+        <div class="inner-content-wrapper row-fluid">
+          <div class="property-edit-container">
+
+            <div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>
+            <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer class="footer row-fluid">
+    <nav class="footer-nav span24">
+      <ul class="Tcenter">
+        <li><a href="/">Home</a></li>
+        <li><a href="http://www.aylanetworks.com/news" target="_blank">News</a></li>
+        <li><a href="http://www.aylanetworks.com" target="_blank">Contact</a></li>
+        <li><a href="https://help.aylasupport.com/" target="_blank">Support</a></li>
+        <li><a href="redirectTo('/feedback')" href="#">Feedback</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+
+</div>
+
+</body>
+</html>
