@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:viz="http://www.gexf.net/1.2draft/viz" version="1.2">
+ <meta lastmodifieddate="2019-12-13">
+  <creator>Gephi.org</creator>
+  <description>A Web network</description>
+ </meta>
+ <graph defaultedgetype="undirected" idtype="string" mode="static">
+  <attributes class="node" mode="static">
+   <attribute id="class" title="Class" type="integer"/>
+   <attribute id="pageranks" title="PageRank" type="double"/>
+  </attributes>
+  <nodes count="14">
+   <node id="录入意向单" label="录入意向单">
+    <viz:color r="255" g="255" b="255"/>
+   </node>
+   <node id="方案制定" label="方案制定">
+    <viz:color r="199" g="97" b="20"/>
+   </node>
+   <node id="资源勘查" label="资源勘查">
+    <viz:color r="0" g="0" b="0"/>
+   </node>
+   <node id="方案审阅" label="方案审阅">
+    <viz:color r="255" g="97" b="3"/>
+   </node>
+   <node id="报价" label="报价">
+    <viz:color r="255" g="0" b="0"/>
+   </node>
+   <node id="审阅报价" label="审阅报价">
+    <viz:color r="240" g="255" b="255"/>
+   </node>
+   <node id="意向单结果确认" label="意向单结果确认">
+    <viz:color r="0" g="255" b="0"/>
+   </node>
+   <node id="方案确认" label="方案确认">
+    <viz:color r="252" g="230" b="201"/>
+   </node>
+   <node id="成本录入" label="成本录入">
+    <viz:color r="0" g="0" b="255"/>
+   </node>
+   <node id="转订单" label="转订单">
+    <viz:color r="135" g="38" b="87"/>
+   </node>
+   <node id="指定交付PM" label="指定交付PM">
+    <viz:color r="0" g="255" b="255"/>
+   </node>
+   <node id="指定交付完成时间" label="指定交付完成时间">
+    <viz:color r="176" g="23" b="31"/>
+   </node>
+   <node id="开通" label="开通">
+    <viz:color r="255" g="0" b="255"/>
+   </node>
+   <node id="起租" label="起租">
+    <viz:color r="3" g="168" b="158"/>
+   </node>
+  </nodes>
+  <edges count="31">
+   <edge id="方案制定" source="方案制定" target="录入意向单" type="undirected" weight="59.0">
+    <viz:color r="199" g="97" b="20"/>
+   </edge>
+   <edge id="资源勘查" source="资源勘查" target="方案制定" type="undirected" weight="224.0">
+    <viz:color r="0" g="0" b="0"/>
+   </edge>
+   <edge id="资源勘查" source="资源勘查" target="录入意向单" type="undirected" weight="49.0">
+    <viz:color r="0" g="0" b="0"/>
+   </edge>
+   <edge id="方案审阅" source="方案审阅" target="录入意向单" type="undirected" weight="7.0">
+    <viz:color r="255" g="97" b="3"/>
+   </edge>
+   <edge id="方案审阅" source="方案审阅" target="方案制定" type="undirected" weight="39.0">
+    <viz:color r="255" g="97" b="3"/>
+   </edge>
+   <edge id="方案审阅" source="方案审阅" target="资源勘查" type="undirected" weight="35.0">
+    <viz:color r="255" g="97" b="3"/>
+   </edge>
+   <edge id="报价" source="报价" target="方案制定" type="undirected" weight="12.0">
+    <viz:color r="255" g="0" b="0"/>
+   </edge>
+   <edge id="报价" source="报价" target="录入意向单" type="undirected" weight="11.0">
+    <viz:color r="255" g="0" b="0"/>
+   </edge>
+   <edge id="报价" source="报价" target="资源勘查" type="undirected" weight="22.0">
+    <viz:color r="255" g="0" b="0"/>
+   </edge>
+   <edge id="报价" source="报价" target="方案审阅" type="undirected" weight="12.0">
+    <viz:color r="255" g="0" b="0"/>
+   </edge>
+   <edge id="审阅报价" source="审阅报价" target="录入意向单" type="undirected" weight="28.0">
+    <viz:color r="240" g="255" b="255"/>
+   </edge>
+   <edge id="审阅报价" source="审阅报价" target="方案制定" type="undirected" weight="6.0">
+    <viz:color r="240" g="255" b="255"/>
+   </edge>
+   <edge id="审阅报价" source="审阅报价" target="报价" type="undirected" weight="60.0">
+    <viz:color r="240" g="255" b="255"/>
+   </edge>
+   <edge id="审阅报价" source="审阅报价" target="方案审阅" type="undirected" weight="1.0">
+    <viz:color r="240" g="255" b="255"/>
+   </edge>
+   <edge id="审阅报价" source="审阅报价" target="资源勘查" type="undirected" weight="7.0">
+    <viz:color r="240" g="255" b="255"/>
+   </edge>
+   <edge id="意向单结果确认" source="意向单结果确认" target="审阅报价" type="undirected" weight="2.0">
+    <viz:color r="0" g="255" b="0"/>
+   </edge>
+   <edge id="意向单结果确认" source="意向单结果确认" target="报价" type="undirected" weight="31.0">
+    <viz:color r="0" g="255" b="0"/>
+   </edge>
+   <edge id="意向单结果确认" source="意向单结果确认" target="录入意向单" type="undirected" weight="72.0">
+    <viz:color r="0" g="255" b="0"/>
+   </edge>
+   <edge id="意向单结果确认" source="意向单结果确认" target="资源勘查" type="undirected" weight="31.0">
+    <viz:color r="0" g="255" b="0"/>
+   </edge>
+   <edge id="意向单结果确认" source="意向单结果确认" target="方案审阅" type="undirected" weight="8.0">
+    <viz:color r="0" g="255" b="0"/>
+   </edge>
+   <edge id="意向单结果确认" source="意向单结果确认" target="方案制定" type="undirected" weight="89.0">
+    <viz:color r="0" g="255" b="0"/>
+   </edge>
+   <edge id="方案确认" source="方案确认" target="意向单结果确认" type="undirected" weight="57.0">
+    <viz:color r="252" g="230" b="201"/>
+   </edge>
+   <edge id="成本录入" source="成本录入" target="意向单结果确认" type="undirected" weight="41.0">
+    <viz:color r="0" g="0" b="255"/>
+   </edge>
+   <edge id="成本录入" source="成本录入" target="方案确认" type="undirected" weight="15.0">
+    <viz:color r="0" g="0" b="255"/>
+   </edge>
+   <edge id="转订单" source="转订单" target="成本录入" type="undirected" weight="77.0">
+    <viz:color r="135" g="38" b="87"/>
+   </edge>
+   <edge id="转订单" source="转订单" target="方案确认" type="undirected" weight="20.0">
+    <viz:color r="135" g="38" b="87"/>
+   </edge>
+   <edge id="转订单" source="转订单" target="意向单结果确认" type="undirected" weight="112.0">
+    <viz:color r="135" g="38" b="87"/>
+   </edge>
+   <edge id="指定交付PM" source="指定交付PM" target="转订单" type="undirected" weight="207.0">
+    <viz:color r="0" g="255" b="255"/>
+   </edge>
+   <edge id="指定交付完成时间" source="指定交付完成时间" target="指定交付PM" type="undirected" weight="327.0">
+    <viz:color r="176" g="23" b="31"/>
+   </edge>
+   <edge id="开通" source="开通" target="指定交付完成时间" type="undirected" weight="44.0">
+    <viz:color r="255" g="0" b="255"/>
+   </edge>
+   <edge id="起租" source="起租" target="开通" type="undirected" weight="2.0">
+    <viz:color r="3" g="168" b="158"/>
+   </edge>
+  </edges>
+ </graph>
+</gexf>
